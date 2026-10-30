@@ -98,7 +98,7 @@ body:has(.interior){position:relative;isolation:isolate;min-height:100vh;backgro
 .interior-tasks .page{top:27%;height:48%}.interior-tasks .book-leaf{padding:1% 3%}.interior-tasks .book-leaf-right>.row{padding-top:1%}
 /* Esfera interactiva del reloj. */
 .interior-timer .page{left:33%;top:25%;width:34%;height:52%}.interior-timer .book-leaf-left{overflow:visible}.interior-timer .timer{width:100%;height:100%;display:grid;place-items:center}.timer-dial{display:grid;place-items:center;width:min(100%,clamp(160px,30vw,385px));aspect-ratio:1;border-radius:50%;background:conic-gradient(#ef9276 var(--progress),#ebd6b9 0);box-shadow:0 3px 10px #a5794d44}.timer-center{width:93%;height:93%;border-radius:50%;background:#fff7e5;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:clamp(3px,.5vw,8px)}.interior-timer .timer .time{font-size:clamp(30px,5vw,70px);line-height:1;margin:0;color:#704e78}.timer-minutes{display:flex;flex-direction:row;align-items:center;gap:5px;color:#866d70;font-size:clamp(10px,.8vw,13px);font-weight:600}.timer-minutes input{width:clamp(42px,4vw,58px)!important;padding:3px!important;text-align:center;border:1px solid #e3c6a2;border-radius:8px;background:#fffdf5;color:#684f6a}.timer-actions{display:flex;align-items:center;justify-content:center;gap:10px}.timer-actions button{display:grid;place-items:center;border-radius:50%;padding:0;line-height:1}.timer-actions .timer-play{width:clamp(36px,4vw,54px);height:clamp(36px,4vw,54px);background:#ec8b72;border:2px solid #ffd9b7;box-shadow:0 3px 0 #bb6856;color:#fff;font-size:clamp(17px,1.6vw,22px)}.timer-actions .timer-restart{width:clamp(30px,3.3vw,44px);height:clamp(30px,3.3vw,44px);background:#d9ebdf;border:2px solid #f6f2df;box-shadow:0 3px 0 #9ab9a9;color:#507363;font-size:clamp(19px,1.8vw,25px)}
-.scene{background-image:url('assets/aula-saludo.webp')}
+.scene{background-image:url('assets/aula-caja.webp')}
 .interior-tasks .book-leaf-left{padding-left:7%}
 /* La escena llena toda la ventana; las coordenadas siguen la imagen escalada. */
 body:has(.interior)::before{display:none}body:has(.interior){background:#352b25}#app:has(.interior){max-width:none}.interior{--scene-w:max(100vw,150vh);--scene-h:calc(var(--scene-w) / 1.5);width:100%;height:100vh;aspect-ratio:auto;background-size:cover;background-position:center;overflow:hidden}.interior .page{left:calc(50% - var(--scene-w) * .32);top:calc(50% - var(--scene-h) * .22);width:calc(var(--scene-w) * .64);height:calc(var(--scene-h) * .53)}.interior-class .page{top:calc(50% - var(--scene-h) * .285);height:calc(var(--scene-h) * .56)}.interior-attendance .page{top:calc(50% - var(--scene-h) * .275);height:calc(var(--scene-h) * .51)}.interior-grades .page{top:calc(50% - var(--scene-h) * .275);height:calc(var(--scene-h) * .51)}.interior-tasks .page{top:calc(50% - var(--scene-h) * .23);height:calc(var(--scene-h) * .48)}.interior-schedule,.interior-timer{--scene-w:max(100vw,calc(100vh * 1672 / 941));--scene-h:calc(var(--scene-w) * 941 / 1672);width:100%;height:100vh;aspect-ratio:auto}.interior-schedule > .days{left:calc(50% - var(--scene-w) * .34);top:calc(50% - var(--scene-h) * .38);width:calc(var(--scene-w) * .70);height:calc(var(--scene-h) * .57)}.interior-timer .page{left:calc(50% - var(--scene-w) * .17);top:calc(50% - var(--scene-h) * .25);width:calc(var(--scene-w) * .34);height:calc(var(--scene-h) * .52)}
@@ -147,3 +147,41 @@ body:has(.interior)::before{display:none}body:has(.interior){background:#352b25}
  .interior-timer .timer{height:auto}.timer-dial{width:min(80vw,300px);margin:8px auto}.interior-timer .timer .time{font-size:55px}.timer-minutes{font-size:15px}.timer-minutes input{width:58px!important;font-size:16px}.timer-actions .timer-play{width:54px;height:54px}.timer-actions .timer-restart{width:46px;height:46px}
  .modal{padding:12px}.modal .panel{max-height:85dvh}.modal input,.modal select,.modal textarea{font-size:16px}
 }
+
+/* Teléfono: una escena completa, con los objetos como controles. */
+@media (max-width:600px) and (orientation:portrait){
+ .home{position:relative;height:100dvh;min-height:0;padding:0;overflow:hidden;background:#7c6945}
+ .home .scene{width:100%;height:100%;aspect-ratio:auto;background-image:url('assets/aula-vertical.webp');background-size:100% 100%;background-position:center}
+ .home .scene .greeting{left:35%;top:15.7%;width:43%;height:5%;font-size:clamp(12px,3.2vw,20px);transform:rotate(-4deg)}
+ .mobile-tools{position:absolute;z-index:3;inset:0;display:block;max-width:none;margin:0;padding:0;pointer-events:none}
+ .mobile-tool{position:absolute;display:flex;align-items:flex-end;justify-content:center;pointer-events:auto;min-width:0;padding:0 0 3px;border:2px solid transparent;border-radius:22px;background:transparent;box-shadow:none;color:#fff7d6;font-size:clamp(11px,3vw,14px);text-shadow:0 2px 2px #533222,1px 1px 3px #533222}
+ .mobile-tool:focus-visible,.mobile-tool:active{border-color:#ffe47a;background:#ffffff1c;box-shadow:0 0 16px #ffe47a}.mobile-tool-art{display:none}
+ .mobile-tool-class{left:3%;top:27%;width:53%;height:20%}.mobile-tool-attendance{left:59%;top:26%;width:30%;height:21%}
+ .mobile-tool-schedule{left:8%;top:47%;width:43%;height:20%}.mobile-tool-grades{left:53%;top:48%;width:39%;height:19%}
+ .mobile-tool-tasks{left:5%;top:67%;width:46%;height:17%}.mobile-tool-timer{left:59%;top:66%;width:34%;height:18%}
+ .mobile-tool-board{left:23%;top:83%;width:46%;height:13%}.mobile-tool-backup{left:72%;top:84%;width:27%;height:13%;font-size:10px}
+ .interior:not(.interior-schedule):not(.interior-board):not(.interior-timer){height:100dvh;min-height:0;padding:0;overflow:hidden;background:#bd9567 url('assets/cuaderno-vertical.webp') center/100% 100% no-repeat}
+ .interior-class .page,.interior-attendance .page,.interior-grades .page,.interior-tasks .page{position:absolute;left:9%;top:21%;width:82%;height:62%;max-width:none;margin:0;padding:1% 2%;overflow-y:auto;overscroll-behavior:contain;background:transparent;border:0;border-radius:0;box-shadow:none}
+ .interior-class .book-leaf .grid{gap:8px;padding:0 2px 8px}.interior-class .student .avatar.portrait,.interior-class .student .avatar.catalog-portrait{max-width:105px}.interior-class .student strong{font-size:14px}
+ .interior-attendance .book-leaf .item{min-height:42px}.interior-attendance .status button{width:35px;height:35px}
+ .interior-class > button.primary,.interior-tasks > button.primary{bottom:calc(1% + env(safe-area-inset-bottom))}.interior > .page-turner{bottom:calc(1% + env(safe-area-inset-bottom))}
+}
+@media (max-width:600px) and (orientation:portrait){
+ .interior .back{position:fixed;top:calc(8px + env(safe-area-inset-top));left:8px;z-index:8}
+ .interior-schedule,.interior-board{height:100dvh;min-height:0;padding:0;overflow:hidden;background:#315c4d url('assets/pizarra-vertical.webp') center/100% 100% no-repeat}
+ .interior-schedule .page,.interior-board .page{position:static;width:auto;height:auto;margin:0;padding:0;overflow:visible}
+ .interior-schedule > .days{position:absolute;left:14%;top:13%;width:75%;height:58%;overflow-y:auto;overscroll-behavior:contain;margin:0;padding:0 5px;border:0;border-radius:0;background:transparent;box-shadow:none}
+ .interior-schedule .days .day,.interior-schedule .days .day:nth-child(even){background:transparent}.interior-schedule:has(> .page-turner) > .page-turner{left:16px;bottom:calc(1% + env(safe-area-inset-bottom))}
+ .interior-board > .canvas-wrap{position:absolute;left:13%;top:12%;width:77%;height:59%;aspect-ratio:auto;background:transparent;border:0;box-shadow:none}
+ .board-toolbar{position:absolute;left:50%;bottom:calc(5% + env(safe-area-inset-bottom));width:95%;transform:translateX(-50%);margin:0;background:#775739bd}
+}
+@media (max-width:600px) and (orientation:portrait){
+ .interior-timer{height:100dvh;min-height:0;padding:0;overflow:hidden;background:#b98b64 url('assets/reloj-vertical.webp') center/100% 100% no-repeat}
+ .interior-timer .page{position:absolute;left:19%;top:35%;width:62%;height:33%;margin:0;padding:0;background:transparent;border:0;box-shadow:none}
+ .interior-timer .book-leaf-left{display:flex;height:100%;align-items:center;justify-content:center}.interior-timer .timer{width:100%;height:100%;display:grid;place-items:center}
+ .interior-timer .timer-dial{width:100%;height:100%;aspect-ratio:auto;margin:0;background:transparent;box-shadow:none}.interior-timer .timer-center{width:100%;height:100%;background:transparent;gap:8px}
+}
+
+/* El cofre de la mesa guarda las copias del aula. */
+.home #backup{left:4%!important;top:74%!important;width:25%!important;height:24%!important;display:flex;justify-content:center;align-items:flex-end;padding:0 0 3%;color:#684560}
+@media (max-width:600px) and (orientation:portrait){.home #backup{display:none}}
