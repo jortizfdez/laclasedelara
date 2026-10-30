@@ -104,4 +104,17 @@ document.addEventListener('click',e=>{if(e.target.id==='backup')showBackup();if(
 document.getElementById('import-file').addEventListener('change',async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;try{if(file.size>15*1024*1024)throw Error();const data=JSON.parse(await file.text());if(!valid(data))throw Error();if(!confirm('¿Abrir esta copia? Sustituirá toda tu clase y pizarra actuales.'))return;const previous=state;state=data;if(!save()){state=previous;return}view='home';render();toast('¡Copia recuperada!')}catch{toast('Esta copia no es válida o no se puede abrir.')}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 render();
+// Precargar en segundo plano sin retrasar la primera pantalla ni competir con ella.
+function preloadScenes(){
+ if(navigator.connection?.saveData)return;
+ const sources=['cuaderno.webp','cuaderno-lista.webp','horario-panorama.webp','cuaderno-notas.webp','cuaderno-tareas.webp','reloj-panorama.webp','flecha-verde.webp','catalogo-alumnos.webp','retratos-animacion.webp','anadir-alumno.webp','anadir-nota.webp','anadir-tarea.webp','anadir-clase.webp'];
+ let index=0;
+ function next(){
+  if(index>=sources.length)return;
+  const image=new Image();image.onload=image.onerror=()=>setTimeout(queue,200);image.src=`assets/${sources[index++]}`;
+ }
+ function queue(){if('requestIdleCallback' in window)window.requestIdleCallback(next,{timeout:3000});else setTimeout(next,250)}
+ queue();
+}
+if(document.readyState==='complete')setTimeout(preloadScenes,700);else window.addEventListener('load',()=>setTimeout(preloadScenes,700),{once:true});
 })();
