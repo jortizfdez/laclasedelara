@@ -185,3 +185,8 @@ body:has(.interior)::before{display:none}body:has(.interior){background:#352b25}
 /* El cofre de la mesa guarda las copias del aula. */
 .home #backup{left:4%!important;top:74%!important;width:25%!important;height:24%!important;display:flex;justify-content:center;align-items:flex-end;padding:0 0 3%;color:#684560}
 @media (max-width:600px) and (orientation:portrait){.home #backup{display:none}}
+
+/* En el aula vertical, los objetos identifican cada herramienta. */
+@media (max-width:600px) and (orientation:portrait){
+ .mobile-tool > span:last-child{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+}
